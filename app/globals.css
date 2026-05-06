@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&display=swap');
+:root {
+  --bg: #ffffff;
+  --muted: #8a8a8a;
+  --ink: #1f1f1f;
+  --footer-bg: #7D7F75;
+  --card-overlay: rgba(214, 200, 175, 0.92);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Anuphan", sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative; /* เพิ่มเพื่อให้ลูกๆ อ้างอิงตำแหน่งได้ */
+  padding-left: 120px; /* จองพื้นที่แถบขาวด้านซ้ายตลอดทั้งหน้า */
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.page::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120px; /* ความกว้างแถบขาว */
+  height: 100%;
+  background: #ffffff; /* สีขาวของแถบด้านซ้าย */
+  z-index: 5; /* ให้อยู่เหนือพื้นหลังอื่นๆ แต่ต่ำกว่าเนื้อหาหลัก */
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 520px;
+  background-image: url("/images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-color: #cfd6dc;
+  overflow: visible;
+  z-index: 10;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.0) 60%);
+  pointer-events: none;
+}
+
+.hero__topbar {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 36px 56px 0;
+  
+}
+
+.hero__logo {
+  font-family: "Anuphan", sans-serif;
+  font-size: 64px;
+  line-height: 1;
+  color: #111;
+  font-weight: 300;
+  z-index: 30;
+}
+
+.hero__brand {
+    font-family: "Anuphan", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    color: #1a1a1a;
+    bottom: 30px;
+    position: relative;
+}
+
+.hero__brand .accent {
+  display: inline-block;
+  /* ปรับขนาดให้สัมพันธ์กับ font-size */
+  width: 14px; 
+  height: 20px; 
+  
+  /* วาดเฉพาะเส้นด้านบน, ขวา, และล่าง */
+  border: 2px solid currentColor; /* ใช้สีเดียวกับตัวอักษร */
+  border-left: none; 
+  
+  /* ทำมุมขวาให้โค้งมน 100% จนเป็นรูปตัว D */
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  
+  /* ปรับระยะห่างระหว่างตัว 'e' และ 'e' */
+  margin: 0 1px; 
+  position: relative;
+  top: 1px; /* เลื่อนลงเล็กน้อยเพื่อให้ Base line ตรงกับตัวอักษรอื่น */
+}
+
+
+.hero__brand__left {
+  font-family: "Anuphan", sans-serif; /* แนะนำเป็น Inter หรือ Helvetica */
+  font-size: 24px;
+  font-weight: 400;
+  display: flex;
+  align-items: center; /* จัดให้ตัวอักษรทั้งหมดและตัว D อยู่กึ่งกลางกันพอดี */
+  color: #1a1a1a;
+}
+
+.hero__brand__left .accent__left {
+    display: inline-block;
+    width: 65px;
+    height: 82px;
+    border: 10px solid #1a1a1a;
+    border-left: none;
+    border-top-right-radius: 36px;
+    border-bottom-right-radius: 36px;
+    background: transparent;
+    position: relative;
+    z-index: 999;
+    right: 90px;
+    top: -15px;
+}
+.hero__divider {
+  position: absolute;
+  top: 130px;
+  left: 56px;
+  
+  /* ให้ขอบขวาทะลุจอไปเล็กน้อย เส้นจะได้ดูโค้งตกขอบเนียนๆ */
+  right: -50px; 
+  
+  /* เพิ่มความสูงเพื่อให้มีพื้นที่ให้เส้นตกลงมา */
+  height: 400px; 
+  
+  /* ลบ background เดิมออก */
+  background: transparent; 
+  
+  /* สร้างเส้นด้านบนและด้านขวา (ในรูป Ref เส้นเป็นสีเข้ม ผมตั้งเป็นสีดำโปร่งแสงไว้ให้) */
+  border-top: 1px solid rgba(0, 0, 0, 0.6);
+  border-right: 1px solid rgba(0, 0, 0, 0.6);
+  
+  /* หัวใจสำคัญ: ดัดโค้งเฉพาะมุมบนขวา (รัศมีแนวนอน 400px, แนวตั้ง 400px) */
+  border-top-right-radius: 270px 293px;
+  
+  z-index: 2;
+  
+  /* สำคัญมาก: เพื่อไม่ให้ความสูงของเส้น ไปบังการคลิกของส่วนอื่นๆ ในหน้าเว็บ */
+  pointer-events: none; 
+}
+
+.hero__title {
+  position: relative;
+  z-index: 2;
+  margin: 70px 0 0 80px;
+  font-size: 44px;
+  line-height: 1.25;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 620px;
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  padding: 40px 56px 60px;
+  background: var(--footer-bg);
+}
+
+.card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  cursor: pointer;
+  background: #eee;
+}
+
+.card__image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 600ms ease, filter 400ms ease;
+}
+
+.card:hover .card__image {
+  transform: scale(1.05);
+  filter: brightness(0.55);
+}
+
+.card__title {
+  position: absolute;
+  left: 28px;
+  top: 28px;
+  right: 28px;
+  z-index: 2;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 300;
+  color: #fff;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  transition: color 400ms ease;
+}
+
+.card__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--card-overlay);
+  opacity: 0;
+  transition: opacity 400ms ease;
+  z-index: 1;
+}
+
+.card__body {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  top: 80px;
+  z-index: 2;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #2c2c2c;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 400ms ease 80ms, transform 400ms ease 80ms;
+}
+
+.card:hover .card__overlay {
+  opacity: 1;
+}
+
+.card:hover .card__body {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover .card__title {
+  color: #2c2c2c;
+  text-shadow: none;
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  background: var(--footer-bg);
+  color: #fff;
+  padding: 18px 56px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.footer__contact {
+  font-size: 13px;
+  opacity: 0.95;
+}
+
+.footer__social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+
+.footer__icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--footer-bg);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.footer__icon--line { background: #fff; color: var(--footer-bg); }
+.footer__icon--ig { background: #fff; color: var(--footer-bg); }
+.footer__icon--fb { background: #fff; color: var(--footer-bg); }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .cards { grid-template-columns: 1fr; padding: 24px; }
+  .hero__topbar { padding: 20px 24px 0; }
+  .hero__title { margin: 50px 0 0 28px; font-size: 30px; }
+  .hero__divider { left: 24px; right: 24px; top: 100px; }
+  .hero__logo { font-size: 44px; }
+  .footer { padding: 16px 24px; }
+}
+
+
+.cards article:nth-child(2) .card__image {
+  background-position: center 6%; /* 20% คือการดันรูปขึ้นเพื่อให้เห็นส่วนบน (ใบหน้า) มากขึ้น */
+}
