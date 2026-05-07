@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Anuphan:wght@100;200;300;400;500;600;700&display=swap");
 :root {
   --bg: #ffffff;
   --muted: #8a8a8a;
   --ink: #1f1f1f;
-  --footer-bg: #7D7F75;
+  --footer-bg: #7d7f75;
   --card-overlay: rgba(214, 200, 175, 0.92);
 }
 
@@ -11,7 +11,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
 }
 
 html,
@@ -68,7 +67,11 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.0) 60%);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0) 60%
+  );
   pointer-events: none;
 }
 
@@ -79,7 +82,6 @@ a {
   justify-content: space-between;
   align-items: center;
   padding: 36px 56px 0;
-  
 }
 
 .hero__logo {
@@ -92,36 +94,35 @@ a {
 }
 
 .hero__brand {
-    font-family: "Anuphan", sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    color: #1a1a1a;
-    bottom: 30px;
-    position: relative;
+  font-family: "Anuphan", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  color: #1a1a1a;
+  bottom: 30px;
+  position: relative;
 }
 
 .hero__brand .accent {
   display: inline-block;
   /* ปรับขนาดให้สัมพันธ์กับ font-size */
-  width: 14px; 
-  height: 20px; 
-  
+  width: 14px;
+  height: 20px;
+
   /* วาดเฉพาะเส้นด้านบน, ขวา, และล่าง */
   border: 2px solid currentColor; /* ใช้สีเดียวกับตัวอักษร */
-  border-left: none; 
-  
+  border-left: none;
+
   /* ทำมุมขวาให้โค้งมน 100% จนเป็นรูปตัว D */
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  
+
   /* ปรับระยะห่างระหว่างตัว 'e' และ 'e' */
-  margin: 0 1px; 
+  margin: 0 1px;
   position: relative;
   top: 1px; /* เลื่อนลงเล็กน้อยเพื่อให้ Base line ตรงกับตัวอักษรอื่น */
 }
-
 
 .hero__brand__left {
   font-family: "Anuphan", sans-serif; /* แนะนำเป็น Inter หรือ Helvetica */
@@ -133,50 +134,50 @@ a {
 }
 
 .hero__brand__left .accent__left {
-    display: inline-block;
-    width: 65px;
-    height: 82px;
-    border: 10px solid #1a1a1a;
-    border-left: none;
-    border-top-right-radius: 36px;
-    border-bottom-right-radius: 36px;
-    background: transparent;
-    position: relative;
-    z-index: 999;
-    right: 90px;
-    top: -15px;
+  display: inline-block;
+  width: 65px;
+  height: 82px;
+  border: 10px solid #1a1a1a;
+  border-left: none;
+  border-top-right-radius: 36px;
+  border-bottom-right-radius: 36px;
+  background: transparent;
+  position: relative;
+  z-index: 999;
+  right: 90px;
+  top: -15px;
 }
 .hero__divider {
   position: absolute;
   top: 130px;
   left: 56px;
-  
+
   /* ให้ขอบขวาทะลุจอไปเล็กน้อย เส้นจะได้ดูโค้งตกขอบเนียนๆ */
-  right: -50px; 
-  
+  right: -50px;
+
   /* เพิ่มความสูงเพื่อให้มีพื้นที่ให้เส้นตกลงมา */
-  height: 400px; 
-  
+  height: 400px;
+
   /* ลบ background เดิมออก */
-  background: transparent; 
-  
+  background: transparent;
+
   /* สร้างเส้นด้านบนและด้านขวา (ในรูป Ref เส้นเป็นสีเข้ม ผมตั้งเป็นสีดำโปร่งแสงไว้ให้) */
   border-top: 1px solid rgba(0, 0, 0, 0.6);
   border-right: 1px solid rgba(0, 0, 0, 0.6);
-  
+
   /* หัวใจสำคัญ: ดัดโค้งเฉพาะมุมบนขวา (รัศมีแนวนอน 400px, แนวตั้ง 400px) */
   border-top-right-radius: 270px 293px;
-  
+
   z-index: 2;
-  
+
   /* สำคัญมาก: เพื่อไม่ให้ความสูงของเส้น ไปบังการคลิกของส่วนอื่นๆ ในหน้าเว็บ */
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .hero__title {
   position: relative;
   z-index: 2;
-  margin: 70px 0 0 80px;
+  margin: 30px 0 0 80px;
   font-size: 44px;
   line-height: 1.25;
   font-weight: 300;
@@ -206,7 +207,9 @@ a {
   inset: 0;
   background-size: cover;
   background-position: center;
-  transition: transform 600ms ease, filter 400ms ease;
+  transition:
+    transform 600ms ease,
+    filter 400ms ease;
 }
 
 .card:hover .card__image {
@@ -224,7 +227,7 @@ a {
   line-height: 1.2;
   font-weight: 300;
   color: #fff;
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+  text-shadow: 7px 2px 18px rgba(0, 0, 0, 4.45);
   transition: color 400ms ease;
 }
 
@@ -248,7 +251,9 @@ a {
   color: #2c2c2c;
   opacity: 0;
   transform: translateY(8px);
-  transition: opacity 400ms ease 80ms, transform 400ms ease 80ms;
+  transition:
+    opacity 400ms ease 80ms,
+    transform 400ms ease 80ms;
 }
 
 .card:hover .card__overlay {
@@ -307,9 +312,18 @@ a {
   font-weight: 700;
 }
 
-.footer__icon--line { background: #fff; color: var(--footer-bg); }
-.footer__icon--ig { background: #fff; color: var(--footer-bg); }
-.footer__icon--fb { background: #fff; color: var(--footer-bg); }
+.footer__icon--line {
+  background: #fff;
+  color: var(--footer-bg);
+}
+.footer__icon--ig {
+  background: #fff;
+  color: var(--footer-bg);
+}
+.footer__icon--fb {
+  background: #fff;
+  color: var(--footer-bg);
+}
 
 /* ---------- RESPONSIVE ---------- */
 /* ---------- RESPONSIVE ---------- */
@@ -361,7 +375,6 @@ a {
     padding: 18px 40px;
   }
 }
-
 
 .card--active .card__image {
   transform: scale(1.05);

@@ -1,4 +1,4 @@
-import { FaFacebook, FaFacebookF, FaInstagram, FaLine } from 'react-icons/fa';
+import { FaFacebook, FaFacebookF, FaInstagram, FaLine } from "react-icons/fa";
 
 const cards = [
   {
@@ -50,7 +50,7 @@ export default function Home() {
             style={{ backgroundImage: `url(${c.image})` }}
           >
             <div
-              className="card__image"
+              className="card__image overlay"
               style={{ backgroundImage: `url(${c.image})` }}
             />
             <div className="card__overlay" />
@@ -75,21 +75,27 @@ export default function Home() {
             <a
               className="footer__icon footer__icon--fb"
               aria-label="Facebook"
-              href="#"
+              href="https://www.facebook.com/Thedentistryofficial/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaFacebookF />
             </a>
             <a
               className="footer__icon footer__icon--ig"
               aria-label="Instagram"
-              href="#"
+              href="https://www.instagram.com/thedentistrygroup/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaInstagram />
             </a>
             <a
               className="footer__icon footer__icon--line"
               aria-label="LINE"
-              href="#"
+              href="https://lin.ee/Nysc2Je"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <FaLine />
             </a>
