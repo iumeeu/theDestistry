@@ -1,3 +1,4 @@
+import Footer from "@/src/components/footer";
 import { FaFacebook, FaFacebookF, FaInstagram, FaLine } from "react-icons/fa";
 
 const cards = [
@@ -24,12 +25,28 @@ export default function Home() {
       <section className="hero">
         <div className="hero__topbar">
           <div className="hero__logo">
-            <span className="hero__brand__left">
-              <span className="accent__left"></span>
-            </span>
+            <div className="hero__brand__left">
+              <div className="accent__left">
+                <img
+                  src="/images/short-logo.png"
+                  style={{
+                    width: 65,
+                    height: 82,
+                  }}
+                />
+              </div>
+            </div>
           </div>
           <div className="hero__brand">
-            The<span className="accent"></span>entistry
+            <img
+              src="/images/logo.png"
+              style={{
+                width: "auto",
+                height: 28,
+                objectFit: "contain",
+              }}
+            />
+            {/* The<span className="accent"></span>entistry */}
           </div>
         </div>
         <div className="hero__divider" />
@@ -66,43 +83,7 @@ export default function Home() {
         ))}
       </section>
 
-      <footer className="footer">
-        <div className="footer__inner">
-          <div className="footer__contact">
-            Contact us : info@thedentistrygroup.com
-          </div>
-          <div className="footer__social">
-            <a
-              className="footer__icon footer__icon--fb"
-              aria-label="Facebook"
-              href="https://www.facebook.com/Thedentistryofficial/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaFacebookF />
-            </a>
-            <a
-              className="footer__icon footer__icon--ig"
-              aria-label="Instagram"
-              href="https://www.instagram.com/thedentistrygroup/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              className="footer__icon footer__icon--line"
-              aria-label="LINE"
-              href="https://lin.ee/Nysc2Je"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaLine />
-            </a>
-            <span>The Dentistry Clinic</span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }

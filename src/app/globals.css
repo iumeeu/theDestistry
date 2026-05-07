@@ -137,10 +137,10 @@ a {
   display: inline-block;
   width: 65px;
   height: 82px;
-  border: 10px solid #1a1a1a;
-  border-left: none;
-  border-top-right-radius: 36px;
-  border-bottom-right-radius: 36px;
+  /* border: 10px solid #1a1a1a; */
+  /* border-left: none; */
+  /* border-top-right-radius: 36px; */
+  /* border-bottom-right-radius: 36px; */
   background: transparent;
   position: relative;
   z-index: 999;
@@ -172,6 +172,16 @@ a {
 
   /* สำคัญมาก: เพื่อไม่ให้ความสูงของเส้น ไปบังการคลิกของส่วนอื่นๆ ในหน้าเว็บ */
   pointer-events: none;
+}
+
+.hero__paragraph {
+  position: relative;
+  z-index: 2;
+  margin: 10px 0 0 80px;
+  font-size: 18px;
+  line-height: 1.65;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.92);
 }
 
 .hero__title {
@@ -277,7 +287,8 @@ a {
   padding: 18px 56px;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: end;
+  gap: 8px;
 }
 
 .footer__inner {
@@ -449,6 +460,12 @@ a {
     max-width: calc(100% - 40px);
   }
 
+  .hero__paragraph {
+    margin: 16px 0 0 28px;
+    font-size: 16px;
+    max-width: calc(100% - 40px);
+  }
+
   .cards {
     grid-template-columns: 1fr;
     padding: 24px 24px 40px;
@@ -556,4 +573,38 @@ a {
 
 .cards article:nth-child(2) .card__image {
   background-position: center 6%; /* 20% คือการดันรูปขึ้นเพื่อให้เห็นส่วนบน (ใบหน้า) มากขึ้น */
+}
+
+.footer__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer__lang {
+  display: flex;
+  align-items: center;
+}
+
+.footer__lang-select {
+  background-color: transparent;
+  color: inherit;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  outline: none;
+  font-family: 'Anuphan', sans-serif;
+}
+
+.footer__lang-select option {
+  background-color: #fff;
+  color: #333;
+}
+
+.footer__lang-select:hover {
+  border-color: rgba(255, 255, 255, 0.8);
 }
