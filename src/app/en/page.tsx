@@ -1,5 +1,6 @@
 import Footer from "@/src/components/footer";
-import { FaFacebook, FaFacebookF, FaInstagram, FaLine } from "react-icons/fa";
+import LangSwitch from "@/src/components/LangSwitch";
+import CardSection from "@/src/components/CardSection";
 
 const cards = [
   {
@@ -23,33 +24,28 @@ export default function Home() {
   return (
     <main className="page">
       <section className="hero">
-        <div className="hero__topbar">
-          <div className="hero__logo">
-            <div className="hero__brand__left">
-              <div className="accent__left">
-                <img
-                  src="/images/short-logo.png"
-                  style={{
-                    width: 65,
-                    height: 82,
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="hero__brand">
-            <img
-              src="/images/logo.png"
-              style={{
-                width: "auto",
-                height: 28,
-                objectFit: "contain",
-              }}
-            />
-            {/* The<span className="accent"></span>entistry */}
-          </div>
+
+        {/* ── D logo: centred on the sidebar / hero boundary ── */}
+        <div className="hero__logo-pin">
+          <img
+            src="/images/short-logo.png"
+            className="logo-img-short"
+            alt="The Dentistry"
+          />
         </div>
+
+        {/* ── Topbar: TH/EN (left) + wordmark (right) ── */}
+        <div className="hero__topbar">
+          <LangSwitch />
+          <img
+            src="/images/logo.png"
+            className="logo-img-brand"
+            alt="TheDentistry"
+          />
+        </div>
+
         <div className="hero__divider" />
+
         <h1 className="hero__title">
           A complete destination
           <br />
@@ -59,30 +55,7 @@ export default function Home() {
         </h1>
       </section>
 
-      <section className="cards">
-        {cards.map((c) => (
-          <article
-            key={c.title}
-            className="card"
-            style={{ backgroundImage: `url(${c.image})` }}
-          >
-            <div
-              className="card__image overlay"
-              style={{ backgroundImage: `url(${c.image})` }}
-            />
-            <div className="card__overlay" />
-            <h3 className="card__title">
-              {c.title.split("\n").map((line, i) => (
-                <span key={i} style={{ display: "block" }}>
-                  {line}
-                </span>
-              ))}
-            </h3>
-            <p className="card__body">{c.body}</p>
-          </article>
-        ))}
-      </section>
-
+      <CardSection cards={cards} />
       <Footer />
     </main>
   );

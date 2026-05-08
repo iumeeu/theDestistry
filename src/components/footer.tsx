@@ -1,14 +1,7 @@
 "use client";
-import { NextPage } from "next";
-import { usePathname, useRouter } from "next/navigation";
-import { FaFacebook, FaFacebookF, FaInstagram, FaLine } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLine } from "react-icons/fa";
 
-interface Props {}
-
-const Footer: NextPage<Props> = () => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const currentLang = pathname.startsWith("/en") ? "en" : "th";
+export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner">
@@ -16,19 +9,6 @@ const Footer: NextPage<Props> = () => {
           Contact us : info@thedentistrygroup.com
         </div>
         <div className="footer__social">
-          <div className="footer__lang">
-            <select
-              className="footer__lang-select"
-              onChange={(e) => {
-                const lang = e.target.value;
-                router.push(`/${lang}`);
-              }}
-              value={currentLang}
-            >
-              <option value="th">ไทย (TH)</option>
-              <option value="en">English (EN)</option>
-            </select>
-          </div>
           <a
             className="footer__icon footer__icon--fb"
             aria-label="Facebook"
@@ -61,6 +41,4 @@ const Footer: NextPage<Props> = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
