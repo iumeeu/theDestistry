@@ -10,7 +10,7 @@ const cards = [
   },
   {
     title: "Peace Of Mind",
-    image: "/images/card-peace.jpg",
+    image: "/images/card-peace2.jpg",
     body: "We provide treatment plans guided by clear clinical rationale and measurable outcomes. Patients are fully informed at every stage and can confidently participate in choosing the most suitable treatment options.",
   },
   {
