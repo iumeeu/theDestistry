@@ -54,7 +54,9 @@ export default function Home() {
           and expert dental care
         </h1>
         <p className="hero__paragraph">
-          เทคโนโลยีที่แม่นยำ · ผสานการรักษาที่เชี่ยวชาญ
+          เทคโนโลยีที่แม่นยำ
+          <br />
+          ผสานการรักษาที่เชี่ยวชาญ
         </p>
       </section>
 
