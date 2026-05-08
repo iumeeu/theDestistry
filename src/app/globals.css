@@ -262,8 +262,8 @@ a {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.18) 0,
-    rgba(0, 0, 0, 0.04) 30%,
-    transparent 55%
+    rgba(0, 0, 0, 0.04) 20%,
+    transparent 40%
   );
   z-index: 1;
   pointer-events: none;
