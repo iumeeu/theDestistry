@@ -199,23 +199,41 @@ a {
 .cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  padding: 36px 48px 52px;
+  gap: 20px;
+  padding: 40px 56px 60px;
   background: var(--footer-bg);
+}
+
+/* เส้นปะสีขาวเฉพาะ card แต่ละใบ — หายเมื่อ hover */
+.card__curve {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0.5;
+  transition: opacity 350ms ease;
+}
+
+.card:hover .card__curve,
+.card--active .card__curve {
+  opacity: 0;
 }
 
 .card {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 3;    /* สูงกว่า 4:3 — card ดูใหญ่/balanced กว่า */
   overflow: hidden;
   cursor: pointer;
   background: #ddd;
 }
 
-/* 2nd card: shift bg up to show face */
+/* 2nd card: zoom-in + anchor ขวา → ผู้หญิงเลื่อนไปขวาของ card */
 .cards article:nth-child(2) .card__image {
   background-position: center 8%;
 }
+
 
 .card__image {
   position: absolute;
@@ -236,6 +254,7 @@ a {
   z-index: 1;
 }
 
+
 .card__title {
   position: absolute;
   left: 24px;
@@ -251,18 +270,17 @@ a {
   /* smooth move when title shifts to top on hover */
   transition: top 400ms ease, color 400ms ease;
 }
-
 /* gradient scrim — เบามาก แค่ช่วย title อ่านได้ */
 .card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
+  /* background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.18) 0,
     rgba(0, 0, 0, 0.04) 20%,
     transparent 40%
-  );
+  ); */
   z-index: 1;
   pointer-events: none;
   transition: opacity 400ms ease;
@@ -273,6 +291,7 @@ a {
 .card--active::after {
   opacity: 0;
 }
+
 
 .card__body {
   position: absolute;
@@ -304,7 +323,6 @@ a {
 }
 .card:hover .card__title {
   color: #1a1a1a;
-  text-shadow: none;
 }
 
 /* Touch / tap */
@@ -321,7 +339,6 @@ a {
 }
 .card--active .card__title {
   color: #1a1a1a;
-  text-shadow: none;
 }
 
 /* card__body stays above overlay */
@@ -413,6 +430,7 @@ a {
     gap: 12px;
   }
 
+
   /* card สูงกว่า 4:3 — มีที่ให้ body text พอ */
   .card {
     aspect-ratio: 3 / 4;
@@ -492,6 +510,9 @@ a {
     gap: 12px;
   }
 
+  /* mobile: ซ่อนเส้นปะ — card เรียงแนวตั้งไม่ต่อกัน */
+  .card__curve { display: none; }
+
   /* RESET grid-column ที่อาจมาจาก tablet rule */
   .cards > article {
     grid-column: auto !important;
@@ -503,17 +524,18 @@ a {
     height: auto;
   }
 
+  /* mobile: title ชิดซ้ายบน ไม่ใช้ titleTop % */
   .card__title {
     font-size: 18px;
     left: 22px;
     right: 22px;
-    /* ไม่ override top — ใช้ titleTop % จาก inline style */
+    top: 22px !important;
   }
 
   .card__body {
     font-size: 13px;
     line-height: 1.6;
-    top: 70px;
+    top: 72px;
     left: 22px;
     right: 22px;
   }
@@ -589,7 +611,7 @@ a {
     font-size: 16px;
     left: 16px;
     right: 16px;
-    /* ไม่ override top — ใช้ titleTop % */
+    top: 18px !important;   /* ชิดซ้ายบน ไม่ใช้ titleTop % */
   }
   .card__body {
     font-size: 12px;
