@@ -4,7 +4,7 @@ import CardSection from "@/src/components/CardSection";
 
 const cards = [
   {
-    title: "Redefining Functional\nAesthetics",
+    title: "Redefining Functional Aesthetics",
     image: "/images/card-aesthetics.png",
     titleTop: "30%",
     body: "We believe beauty should go hand in hand with optimal oral health. Our personalized smile design approach considers both function and phonetics, so you can live confidently every day.",

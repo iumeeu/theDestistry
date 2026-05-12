@@ -4,7 +4,7 @@ import CardSection from "@/src/components/CardSection";
 
 const cards = [
   {
-    title: "Redefining Functional\nAesthetics",
+    title: "Redefining Functional Aesthetics",
     image: "/images/card-aesthetics.png",
     titleTop: "30%",
     body: "เราเชื่อว่ารอยยิ้มที่สวยงาม ต้องมาพร้อมสุขภาพช่องปากที่สมบูรณ์ การออกแบบรอยยิ้มเฉพาะบุคคล จึงไม่ได้คำนึงเพียงความสวยงาม แต่รวมถึงการบดเคี้ยว การออกเสียง เพื่อความมั่นใจในการใช้ชีวิตในทุกวัน",
