@@ -92,7 +92,7 @@ a {
 }
 .logo-img-brand {
   display: block;
-  height: 22px;
+  height: clamp(14px, 1.75vw, 26px);
   width: auto;
   object-fit: contain;
 }
@@ -100,7 +100,7 @@ a {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: clamp(10px, 0.95vw, 14px);
   font-weight: 400;
   color: #fff;
   letter-spacing: 0.5px;
@@ -138,7 +138,8 @@ a {
   position: relative;
   z-index: 2;
   margin: 56px 0 0 56px;
-  font-size: 42px;
+  /* fluid: 18px @360px → 44px @1280px+ */
+  font-size: clamp(18px, 3.4vw, 44px);
   line-height: 1.28;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.92);
@@ -149,7 +150,7 @@ a {
   position: relative;
   z-index: 2;
   margin: 6px 0 0 56px;
-  font-size: 16px;
+  font-size: clamp(10px, 1.25vw, 17px);
   line-height: 1.7;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
@@ -216,7 +217,8 @@ a {
 
   top: 24px;
   z-index: 3;
-  font-size: 20px;
+  /* fluid title: 14px @360px → 22px @1280px+ */
+  font-size: clamp(14px, 1.5vw, 22px);
   line-height: 1.25;
   font-weight: 300;
   color: #1a1a1a;
@@ -245,7 +247,8 @@ a {
   right: 24px;
   top: 76px;
   z-index: 2;
-  font-size: 13.5px;
+  /* fluid body: 11.5px @360px → 14px @1280px+ */
+  font-size: clamp(11.5px, 1vw, 14px);
   line-height: 1.65;
   color: #2c2c2c;
   opacity: 0;
@@ -302,7 +305,7 @@ a {
 }
 
 .footer__contact {
-  font-size: 13px;
+  font-size: clamp(11px, 1vw, 14px);
   opacity: 0.9;
 }
 
@@ -310,7 +313,7 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: clamp(11px, 1vw, 14px);
 }
 
 .footer__icon {
@@ -342,17 +345,10 @@ a {
   }
   .hero__title {
     margin: 44px 0 0 40px;
-    font-size: 34px;
+    /* font-size handled by clamp() */
   }
   .hero__paragraph {
     margin-left: 40px;
-    font-size: 15px;
-  }
-  .logo-img-brand {
-    height: 19px;
-  }
-  .lang-switch {
-    font-size: 12px;
   }
   .cards {
     grid-template-columns: repeat(3, 1fr);
@@ -364,7 +360,6 @@ a {
   }
 
   .card__title {
-    font-size: 15px;
     line-height: 1.2;
     left: 18px;
     right: 18px;
@@ -374,7 +369,6 @@ a {
     top: 76px;
     left: 18px;
     right: 18px;
-    font-size: 11.5px;
     line-height: 1.55;
   }
 
@@ -398,11 +392,7 @@ a {
   .hero__topbar {
     padding: var(--topbar-pt) 16px 0 32px;
   }
-  .logo-img-brand {
-    height: 16px;
-  }
   .lang-switch {
-    font-size: 11px;
     gap: 4px;
   }
 
@@ -414,13 +404,11 @@ a {
 
   .hero__title {
     margin: 38px 0 0 22px;
-    font-size: 18px;
     max-width: calc(100% - 28px);
   }
 
   .hero__paragraph {
     margin: 4px 0 0 22px;
-    font-size: 10px;
     text-shadow:
       0 1px 8px rgba(0, 0, 0, 0.55),
       0 0 24px rgba(0, 0, 0, 0.3);
@@ -441,14 +429,12 @@ a {
     height: auto;
   }
   .card__title {
-    font-size: 18px;
     left: 22px;
     right: 22px;
     top: 22px !important;
   }
 
   .card__body {
-    font-size: 13px;
     line-height: 1.6;
     top: 72px;
     left: 22px;
@@ -458,12 +444,8 @@ a {
   .footer {
     padding: 14px 18px;
   }
-  .footer__contact {
-    font-size: 12px;
-  }
   .footer__social {
     gap: 8px;
-    font-size: 12px;
   }
   .footer__icon {
     width: 22px;
@@ -485,11 +467,7 @@ a {
   .hero__topbar {
     padding: var(--topbar-pt) 14px 0 26px;
   }
-  .logo-img-brand {
-    height: 14px;
-  }
   .lang-switch {
-    font-size: 10px;
     gap: 3px;
   }
 
@@ -501,11 +479,9 @@ a {
 
   .hero__title {
     margin: 32px 0 0 16px;
-    font-size: 20px;
   }
   .hero__paragraph {
     margin-left: 16px;
-    font-size: 12px;
   }
 
   .cards {
@@ -519,13 +495,11 @@ a {
   }
 
   .card__title {
-    font-size: 16px;
     left: 16px;
     right: 16px;
     top: 18px !important;
   }
   .card__body {
-    font-size: 12px;
     top: 64px;
     left: 16px;
     right: 16px;
