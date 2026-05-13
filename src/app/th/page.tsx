@@ -19,7 +19,7 @@ const cards = [
     title: "Technically Precise",
     image: "/images/999506_0_0-2.jpg",
     titleTop: "6%",
-    body: "ที่ The Dentistry เราใช้ Intraoral Scanner, Digital Treatment Planning และAI Smile Simulation เพื่อช่วยให้คุณเห็นภาพ และเข้าใจกระบวนการรักษาได้ชัดเจนมากขึ้นก่อนเริ่มการดูแล",
+    body: "ที่ The Dentistry เราใช้ Intraoral Scanner, Digital Treatment Planning และ AI Smile Simulation เพื่อช่วยให้คุณเห็นภาพ และเข้าใจกระบวนการรักษาได้ชัดเจนมากขึ้นก่อนเริ่มการดูแล",
   },
 ];
 
