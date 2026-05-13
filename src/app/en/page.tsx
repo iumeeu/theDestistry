@@ -7,19 +7,19 @@ const cards = [
     title: "Redefining Functional Aesthetics",
     image: "/images/card-aesthetics.png",
     titleTop: "30%",
-    body: "We believe beauty should go hand in hand with optimal oral health. Our personalized smile design approach considers both function and phonetics, so you can live confidently every day.",
+    body: "At The Dentistry, we redefine functional aesthetics by creating smiles that balance beauty, function, and long-term oral health. Through precise technology and experienced dentists, we deliver personalized treatment that is efficient, predictable, and designed for lasting results.",
   },
   {
     title: "Peace Of Mind",
     image: "/images/card-peace2.jpg",
     titleTop: "75%",
-    body: "We provide treatment plans guided by clear clinical rationale and measurable outcomes. Patients are fully informed at every stage and can confidently participate in choosing the most suitable treatment options.",
+    body: "Because we believe that true peace of mind doesn't come from technology alone, but from having a team that is ready to listen, explain, and support you with understanding every step of the way.",
   },
   {
     title: "Technically Precise",
     image: "/images/card-precise.jpg",
     titleTop: "6%",
-    body: "A new standard in dental care for aesthetics and oral health, featuring world-class dental technologies combined with the expertise of continuously trained dentists to deliver precise, refined, and exceptional results in every dimension.",
+    body: "At The Dentistry, we use Intraoral Scanners, Digital Treatment Planning, and AI Smile Simulation to deliver more precise and accurate treatment planning, while helping you clearly visualize and better understand the treatment process before starting your treatment.",
   },
 ];
 
