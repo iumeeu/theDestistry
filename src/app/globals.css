@@ -39,7 +39,7 @@
   --cards-pad-x:     calc(clamp(16px, 2.93vw, 112px) * var(--scale)); /*  56 */
   --cards-gap:       calc(clamp(8px,  1.046vw, 40px) * var(--scale)); /*  20 */
   --card-pad:        calc(clamp(14px, 1.25vw,  48px) * var(--scale)); /*  24 */
-  --card-body-top:   calc(clamp(50px, 3.97vw, 152px) * var(--scale)); /*  76 */
+  --card-body-top:   calc(clamp(72px, 5.23vw, 200px) * var(--scale)); /* 100 */
   --card-title-top:  calc(clamp(16px, 1.25vw,  48px) * var(--scale)); /*  24 */
 
   /* ── Footer ── */
@@ -176,7 +176,7 @@ a { color: inherit; text-decoration: none; }
   z-index: 2;
   margin: var(--hero-mt) 0 0 var(--hero-ml);
   font-size: clamp(20px, 2.2vw, 84px);         /* 42 @1912 */
-  line-height: 1.28;
+  line-height: 1.38;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.92);
   max-width: 70%;
@@ -185,10 +185,10 @@ a { color: inherit; text-decoration: none; }
 .hero__paragraph {
   position: relative;
   z-index: 2;
-  margin-top: clamp(4px, 0.47vw, 16px);        /*  6 @1280 */
+  margin-top: clamp(10px, 0.94vw, 32px);       /* 18 @1912 */
   margin-left: var(--hero-ml);
   font-size: clamp(11px, 0.84vw, 32px);        /* 16 @1912 */
-  line-height: 1.7;
+  line-height: 1.85;
   font-weight: 300;
   color: rgba(255, 255, 255, 0.9);
   text-shadow:
@@ -257,7 +257,7 @@ a { color: inherit; text-decoration: none; }
   top: var(--card-title-top);
   z-index: 3;
   font-size: calc(clamp(26px, 1.05vw, 40px) * var(--scale));
-  line-height: 1.25;
+  line-height: 1.35;
   font-weight: 300;
   color: #1a1a1a;
   text-shadow: none;
@@ -282,7 +282,7 @@ a { color: inherit; text-decoration: none; }
   top: var(--card-body-top);
   z-index: 3;
   font-size: calc(clamp(20px, 0.71vw, 28px) * var(--scale));
-  line-height: 1.65;
+  line-height: 1.8;
   color: #2c2c2c;
   opacity: 0;
   transform: translateY(8px);
@@ -345,46 +345,86 @@ a { color: inherit; text-decoration: none; }
 
 
 /* ════════════════════════════════════════════════════════════
-   MOBILE  ≤ 767 px — เปลี่ยน layout เท่านั้น
+   MOBILE L / M  (375px – 767px)
 ════════════════════════════════════════════════════════════ */
 @media (max-width: 767px) {
   .hero { aspect-ratio: unset; }
 
-  .hero__title { max-width: calc(100% - 28px); }
+  .hero__title { max-width: calc(100% - 28px); line-height: 1.3; }
+  .hero__paragraph { line-height: 1.65; }
 
   .cards { grid-template-columns: 1fr; }
   .card__curve { display: none; }
   .cards > article { grid-column: auto !important; }
 
+  /* aspect 9/8 — เตี้ยกว่าจัตุรัสเล็กน้อย แต่พอรับ title 2 บรรทัด + body */
+  .card { aspect-ratio: 9 / 8; }
+
   .card__title {
     top: var(--card-title-top) !important;
-    font-size: 137.5% !important;
+    font-size: 125% !important;
+    line-height: 1.24;
   }
 
   .card__body {
-    font-size: 100% !important;
-    top: calc(var(--card-body-top) + 12px);
+    font-size: 85% !important;
+    top: calc(var(--card-title-top) + 60px);
+    line-height: 1.5;
   }
 }
 
+/* ════════════════════════════════════════════════════════════
+   MOBILE S  (≤ 374px : iPhone SE 1st-gen, จอเล็ก)
+════════════════════════════════════════════════════════════ */
+@media (max-width: 374px) {
+  /* sidebar+padding กินพื้นที่เกินครึ่ง → ย่อลง */
+  :root {
+    --sidebar: 28px;
+    --cards-pad-x: 12px;
+    --card-pad: 14px;
+  }
 
+  /* card สี่เหลี่ยมจัตุรัส — กว้างน้อยจึงต้องการ vertical space เพิ่ม */
+  .card { aspect-ratio: 1 / 1; }
+
+  .card__title {
+    font-size: 115% !important;
+    line-height: 1.22;
+  }
+
+  .card__body {
+    font-size: 78% !important;
+    top: calc(var(--card-title-top) + 54px);
+    line-height: 1.45;
+  }
+
+  .hero__title  { font-size: clamp(18px, 5.6vw, 26px); }
+}
+
+/* ════════════════════════════════════════════════════════════
+   TABLET  (768px – 1023px) — 2 columns + banner
+════════════════════════════════════════════════════════════ */
 @media (min-width: 768px) and (max-width: 1023px) {
-  /* .hero { aspect-ratio: unset; }
+  .hero__title    { line-height: 1.32; }
+  .hero__paragraph { line-height: 1.7; }
 
-  .hero__title { max-width: calc(100% - 28px); }
-
-  .cards { grid-template-columns: 1fr; }
+  /* tablet → 2 columns: ให้พื้นที่ card กว้างพอรับ body ยาว */
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  /* card ที่ 3 ขยายเต็มแถวล่าง */
+  .cards > article:nth-child(3) { grid-column: 1 / -1; aspect-ratio: 16 / 7; }
   .card__curve { display: none; }
-  .cards > article { grid-column: auto !important; } */
+  .card { aspect-ratio: 1 / 1; }
 
   .card__title {
     top: var(--card-title-top);
     font-size: 80% !important;
+    line-height: 1.3;
   }
 
   .card__body {
-    font-size: 60% !important;
-    top: calc(var(--card-body-top) + 12px);
+    font-size: 80% !important;
+    top: calc(var(--card-title-top) + 48px);
+    line-height: 1.65;
   }
 }
 
