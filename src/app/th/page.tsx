@@ -11,7 +11,7 @@ const cards = [
   },
   {
     title: "Peace Of Mind",
-    image: "/images/card-peace2.jpg",
+    image: "/images/card-peace.jpg",
     titleTop: "75%",
     body: "เพราะเราเชื่อว่า “ความสบายใจ” ไม่ได้เกิดจาก Technology เพียงอย่างเดียวแต่เกิดจากการมีทีมที่พร้อมรับฟัง อธิบาย และดูแลคุณด้วยความเข้าใจในทุกขั้นตอน",
   },

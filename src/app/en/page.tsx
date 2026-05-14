@@ -11,7 +11,7 @@ const cards = [
   },
   {
     title: "Peace Of Mind",
-    image: "/images/card-peace2.jpg",
+    image: "/images/card-peace.jpg",
     titleTop: "75%",
     body: "Because we believe that true peace of mind doesn't come from technology alone, but from having a team that is ready to listen, explain, and support you with understanding every step of the way.",
   },
