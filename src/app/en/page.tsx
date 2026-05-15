@@ -17,7 +17,7 @@ const cards = [
   },
   {
     title: "Technically Precise",
-    image: "/images/card-precise.jpg",
+    image: "/images/999506_0_0-2.jpg",
     titleTop: "6%",
     body: "At The Dentistry, we use Intraoral Scanners, Digital Treatment Planning, and AI Smile Simulation to deliver more precise and accurate treatment planning, while helping you clearly visualize and better understand the treatment process before starting your treatment.",
   },
